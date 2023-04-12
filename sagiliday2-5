@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, odd_element;
+    int count_of_1 = 0, count_of_2 = 0;
+    
+    // Read the input array from the user
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    printf("Enter the elements of the array:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    // Count the number of occurrences of each element
+    for(i = 0; i < n; i++) {
+        if(arr[i] == arr[0]) {
+            count_of_1++;
+        } else {
+            count_of_2++;
+        }
+    }
+    
+    // Determine which element is odd and print it
+    if(count_of_1 % 2 == 1) {
+        odd_element = arr[0];
+    } else {
+        odd_element = arr[1];
+    }
+    printf("The odd element in the array is: %d\n", odd_element);
+    
+    return 0;
+}
