@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int isPrime(int n);
+
+int main() {
+    int n, i, flag = 0;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    for (i = 2; i <= n/2; ++i) {
+        if (isPrime(i)) {
+            if (isPrime(n-i)) {
+                printf("%d = %d + %d\n", n, i, n-i);
+                flag = 1;
+            }
+        }
+    }
+    if (!flag)
+        printf("%d cannot be expressed as the sum of two prime numbers.\n", n);
+    return 0;
+}
+
+// Function to check whether a number is prime or not
+int isPrime(int n) {
+    int i;
+    for (i = 2; i <= n/2; ++i) {
+        if (n%i == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+// Output
+Enter a positive integer: 34
+34 = 3 + 31
+34 = 5 + 29
+34 = 11 + 23
+34 = 17 + 17
